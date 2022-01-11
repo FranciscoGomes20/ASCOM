@@ -12,6 +12,6 @@ admin.site.register(Sector)
 
 @admin.register(Requestion)
 class RequestionAdmin(admin.ModelAdmin):
-    list_display = ("title", "applicant", "status", "final_date")
+    list_display = ("status", "title", "assigned", "applicant", "sector", "final_date", "urgency")
     list_filter = ("applicant", "status", )
     search_fields = ("title", )
