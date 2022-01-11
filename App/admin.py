@@ -6,8 +6,6 @@ admin.site.register(Category)
 
 admin.site.register(Status)
 
-admin.site.register(Designer)
-
 admin.site.register(Urgency)
 
 admin.site.register(Sector)
