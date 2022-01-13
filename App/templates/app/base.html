@@ -1,0 +1,337 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ascom</title>
+
+  <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <!-- Tempusdominus Bootstrap 4 -->
+  <link rel="stylesheet" href="{% static 'plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css' %}">
+  <!-- iCheck -->
+  <link rel="stylesheet" href="{% static 'plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
+  <!-- JQVMap -->
+  <link rel="stylesheet" href="{% static 'plugins/jqvmap/jqvmap.min.css' %}">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="{% static 'plugins/overlayScrollbars/css/OverlayScrollbars.min.css' %}">
+  <!-- Daterange picker -->
+  <link rel="stylesheet" href="{% static 'plugins/daterangepicker/daterangepicker.css' %}">
+  <!-- summernote -->
+  <link rel="stylesheet" href="{% static 'plugins/summernote/summernote-bs4.min.css' %}">
+  <link rel="stylesheet" href="{% static 'dist/css/style.css ' %}">
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{% static 'dist/css/lista.css' %}">
+
+  <!-- Custom styles for this page -->
+  <link href="{% static 'vendor/datatables/dataTables.bootstrap4.min.css ' %}"  rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/ico" href="{% static 'img/favicon.ico' %}"/>
+
+</head>
+
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preload -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="{% static 'img/sebrae-logo-1.png' %}" alt="AdminLTELogo" height="60" width="60">
+  </div>
+
+  <header>
+    <section>
+      <div class="container">
+        <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
+          <div class="container">
+            <a class="navbar-brand" href="#"><img width="130px" src="{% static 'img/sebrae-logo-1.png' %}" alt=""></a>
+            <div class="social-media order-lg-last">
+              <p class="mb-0 d-flex">
+                <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-question"><i class="sr-only">Instagram</i></span></a>
+                <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-times"><i class="sr-only">Sair</i></span></a>
+              </p>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="fa fa-bars"></span> Menu
+            </button>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+              <ul class="navbar-nav ml-auto mr-md-3">
+                <li class="nav-item"><a href="#" class="nav-link"  data-toggle="modal" data-target=".bd-example-modal-lg">Chamado</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal" data-target="#exampleModal-1" data-whatever="@fat">Categoria</a></li>
+                <li class="nav-item"><a href="#" class="nav-link"  data-toggle="modal" data-target="#exampleModal-2">Setor</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal" data-target="#exampleModal-3" data-whatever="@mdo">Status</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" data-toggle="modal" data-target="#exampleModal-4" data-whatever="">Urgência</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </section>
+  </header>
+
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-body">
+          <form>
+            <h5 class="modal-title">Novo chamado</h5>
+            <hr>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Título:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="form-group">
+              <label for="message-text" class="col-form-label">Descrição:</label>
+              <textarea class="form-control" id="message-text"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlFile1">Selecione o arquivo</label>
+              <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+              <hr>
+            <div id="categoria" class="form-row">
+                <div class="form-group col-md-4 mb-3">
+                  <label for="message-text" class="col-form-label">Categoria:</label>
+                    <select class="form-control">
+                      <option>Novo</option>
+                      <option>Arte complexa</option>
+                      <option>Arte Simples</option>
+                      <option>Arte Simples</option>
+                      <option>Arte Simples</option>
+                    </select>             
+                </div>
+                <div class="form-group col-md-4 mb-3">
+                  <label for="message-text" class="col-form-label">Status:</label>
+                    <select class="form-control">
+                      <option>Arte Simples</option>
+                    </select>             
+                </div>
+                <div class="form-group col-md-4 mb-3">
+                  <label for="message-text" class="col-form-label">Aplicante:</label>
+                    <select class="form-control">
+                      <option>Henrique</option>
+                    </select>             
+                </div>
+                <div class="form-group col-md-4 mb-3">
+                  <label for="message-text" class="col-form-label">Atribuído:</label>
+                    <select class="form-control">
+                      <option>João</option>
+                    </select>             
+                </div>
+                <div class="form-group col-md-4 mb-3">
+                  <label for="message-text" class="col-form-label">Urgência:</label>
+                    <select class="form-control">
+                      <option>Alta</option>
+                    </select>             
+                </div>
+                <div class="form-group col-md-4 mb-3">
+                  <label for="message-text" class="col-form-label">Setor:</label>
+                    <select class="form-control">
+                      <option>Direx</option>
+                    </select>             
+                </div>
+            </div>
+            <hr>
+            <div id="data" class="form-row">
+                <div class="form-group col-md-4 mb-3">
+                  <div id="status" class="form-group">
+                    <label for="data">Data de publicação:</label>
+                      <input type="date" id="date" name="date">
+                  </div>          
+                </div>
+                <div class="form-group col-md-4 mb-3">
+                  <div id="status" class="form-group">
+                    <label for="data">Data final:</label>
+                      <input type="date" id="date" name="date">
+                  </div>          
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button id="botao" type="button" class="btn btn-secondary">Adicionar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModal-1" tabindex="-1" role="dialog" aria-labelledby="#" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModal-1">Nova categoria</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Categoria:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Adicionar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="exampleModal-2" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModal-2">Setor</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Categoria:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Adicionar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="exampleModal-3" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModal-3">Status</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Status:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Adicionar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModal-4" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModal-4">Urgência</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="recipient-name" class="col-form-label">Urgência:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Adicionar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% block content %}
+{% endblock %}
+
+<footer class="bg-light text-center text-lg-start">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(223, 223, 223, 0.699)">
+      
+      <a class="text-dark" href="https://mdbootstrap.com/">SEBRAE - 2022</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+
+<!-- jQuery -->
+<script src="{% static 'plugins/jquery/jquery.min.js' %}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{% static 'plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- ChartJS -->
+<script src="{% static 'plugins/chart.js/Chart.min.js' %}"></script>
+<!-- Sparkline -->
+<script src="{% static 'plugins/sparklines/sparkline.js' %}"></script>
+<!-- JQVMap -->
+<script src="{% static 'plugins/jqvmap/jquery.vmap.min.js' %}"></script>
+<script src="{% static 'plugins/jqvmap/maps/jquery.vmap.usa.js' %}"></script>
+<!-- jQuery Knob Chart -->
+<script src="{% static 'plugins/jquery-knob/jquery.knob.min.js' %}"></script>
+<!-- daterangepicker -->
+<script src="{% static 'plugins/moment/moment.min.js' %}"></script>
+<script src="{% static 'plugins/daterangepicker/daterangepicker.js' %}"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{% static 'plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+<!-- Summernote -->
+<script src="{% static 'plugins/summernote/summernote-bs4.min.js' %}"></script>
+<!-- overlayScrollbars -->
+<script src="{% static 'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' %}"></script>
+<!-- AdminLTE App -->
+<script src="{% static 'dist/js/adminlte.js' %}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{% static 'dist/js/demo.js' %}"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{% static 'dist/js/pages/dashboard.js' %}"></script>
+<script src="{% static 'dist/js/jquery.min.js' %}"></script>
+<script src="{% static 'dist/js/popper.js' %}"></script>
+<script src="{% static 'dist/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'dist/js/main.js' %}"></script>
+
+<!-- Bootstrap core JavaScript-->
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="{% static 'dist/js/sb-admin-2.min.js' %}"></script>
+
+<!-- Page level plugins -->
+<script src="{% static 'vendor/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'vendor/datatables/dataTables.bootstrap4.min.js' %}"></script>
+
+<!-- Page level custom scripts -->
+<script src="{% static 'dist/js/demo/datatables-demo.js' %}"></script>
+
+</body>
+</html>
