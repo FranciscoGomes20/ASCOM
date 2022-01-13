@@ -65,24 +65,33 @@
                   </div>
             </div>
 
-            <form action="#" class="login-form mt-4">
+            <form method="post" class="login-form mt-4">{% csrf_token %}
+
+              {{ form }}
+              <!--
               <div class="form-group">
                 <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-user"></span></div>
                 <input type="text" class="form-control rounded-left" placeholder="Usuário" required>
               </div>
+              
               <div class="form-group">
                 <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-lock"></span></div>
                 <input type="password" class="form-control rounded-left" placeholder="Senha" required>
               </div>
+                -->
               <div class="form-group d-flex align-items-center">
+              
                 <div class="w-100">
                   <label class="checkbox-wrap checkbox-primary mb-0">Salvar senha
                     <input type="checkbox" checked>
                     <span class="checkmark"></span>
                   </label>
                 </div>
+              
                 <div class="w-100 d-flex justify-content-end">
+              
                   <button type="submit" class="btn btn-primary rounded submit">Entrar</button>
+              
                 </div>
               </div>
             </form>
