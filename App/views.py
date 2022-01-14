@@ -21,7 +21,7 @@ def login_request(request):
         else:
             messages.error(request,"Invalid username or password.")
     form = AuthenticationForm()
-    return render(request, "app/registration/login.html", {'form':form})
+    return render(request, "registration/login.html", {'form':form})
 
 @login_required
 def index(request):
@@ -30,4 +30,4 @@ def index(request):
 def logout_request(request):
     logout(request)
     messages.info(request, "You have successfully logged out.")
-    redirect("login_request")
+    redirect('login_request')
