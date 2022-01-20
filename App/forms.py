@@ -68,7 +68,7 @@ class RequisitionForm(forms.ModelForm):
             'sector': forms.TextInput(
                 attrs={'class': 'form-control'}),
             'published_date': forms.TextInput(
-                attrs={'class': 'form-control'}),
+                attrs={'type': 'date', 'id': 'date', 'name': 'date'}),
             'final_date': forms.TextInput(
-                attrs={'class': 'form-control'}),
+                attrs={'type': 'date', 'id': 'date', 'name': 'date'}),
         }
