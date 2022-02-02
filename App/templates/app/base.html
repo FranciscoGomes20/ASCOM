@@ -180,16 +180,16 @@
           </button>
         </div>
         <div class="modal-body">
-          <form>
+          <form method="post">{% csrf_token %}
             <div class="form-group">
               <label for="recipient-name" class="col-form-label">Nome:</label>
-              <input type="text" class="form-control" id="recipient-name">
-
+              <!--<input type="text" class="form-control" id="recipient-name">-->
+              {{ formCategory.name }}
             </div>
             <div class="form-group">
               <label for="recipient-name" class="col-form-label">Description:</label>
-              <input type="text" class="form-control" id="recipient-name">
-
+              <!--<input type="text" class="form-control" id="recipient-name">-->
+              {{ formCategory.description }}
             </div>
           </form>
         </div>

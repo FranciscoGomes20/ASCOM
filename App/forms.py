@@ -4,50 +4,45 @@ from .models import *
 class CategoryForm(forms.ModelForm):
     class Meta:
         model = Category
-        field = ('name', 'description')
+        fields = ('name', 'description')
         widgets = {
             'name': forms.TextInput(
-                attrs={
-                    'type': 'text', 'class': 'form-control', 'id': 'recipient-name'}),
+                attrs={'type': 'text', 'class': 'form-control', 'id': 'recipient-name'}),
             'description': forms.TextInput(
-                attrs={
-                    'type': 'text', 'class': 'form-control', 'id': 'recipient-name'}),            
+                attrs={'type': 'text', 'class': 'form-control', 'id': 'recipient-name'}),            
         }
 
 class StatusForm(forms.ModelForm):
     class Meta:
         model = Status
-        field = ('name')
+        fields = ('name', )
         widgets = {
             'name': forms.TextInput(
-                attrs={
-                    'type': 'text', 'class': 'form-control', 'id': 'recipient-name'}),
+                attrs={'type': 'text', 'class': 'form-control', 'id': 'recipient-name'}),
         }
 
 class UrgencyForm(forms.ModelForm):
     class Meta:
         model = Urgency
-        field = ('description')
+        fields = ('description', )
         widgets = {
             'description': forms.TextInput(
-                attrs={
-                    'type': 'text', 'class': 'form-control', 'id': 'recipient-name'}),
+                attrs={'type': 'text', 'class': 'form-control', 'id': 'recipient-name'}),
         }
 
 class SectorForm(forms.ModelForm):
     class Meta:
         model = Sector
-        field = ('sector')
+        fields = ('sector', )
         widgets = {
             'sector': forms.TextInput(
-                attrs={
-                    'type': 'text', 'class': 'form-control', 'id': 'recipient-name'}),
+                attrs={'type': 'text', 'class': 'form-control', 'id': 'recipient-name'}),
         }
 
 class RequisitionForm(forms.ModelForm):
     class Meta:
         model = Requestion
-        field = ('title', 'description', 'anexo', 'category', 'status', 'applicant', 'assigned', 'urgency', 'sector', 'published_date', 'final_date')
+        fields = ('title', 'description', 'anexo', 'category', 'status', 'applicant', 'assigned', 'urgency', 'sector', 'published_date', 'final_date')
         widgets = {
             'title': forms.TextInput(
                 attrs={'type': 'text', 'class': 'form-control', 'id': 'recipient-name'}),
